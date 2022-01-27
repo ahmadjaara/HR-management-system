@@ -4,8 +4,15 @@ function HrMangment (id,fullName,img,department,level){
     this.img= img;
     this.department=department;
     this.level=level;
-    console.log(this)
+    
+    //push to external array 
+    HrMangment.exMemory.push(this);//this mean any property 
+
+    // console.log(this)
 };
+
+//initialization of array memory 
+HrMangment.exMemory=[];
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -64,6 +71,54 @@ employ5.Salary();
 employ6.Salary();
 
 
+ function render(){
+    //document.write(`<p><h2>"${this.fullName}" is an employee in our companey and its salary is : ${this.Salary()} $$</h2> </p>`)
+//    let div=document.createElement('div');
+//mysection.appendChild(div);
+//   let ele =document.createElement('p') ; 
+//   div.appendChild(ele);
+//   ele.textContent=`${this.fullName} ${this.id} ${this.level} ${this.salary} ${this.department}`;
+
+
+let mysection =document.getElementById("hi");
+
+for(let i =0;i<HrMangment.exMemory.length;i++){
+    
+    let memory = HrMangment.exMemory[i];
+ let divElem1 = document.createElement('div');
+  
+ mysection.appendChild(divElem1);
+
+ let img =document.createElement('img');
+   divElem1.appendChild(img);
+   img.setAttribute('src',memory.img);
+
+
+   let pEle =document.createElement('p');
+   divElem1.append(pEle);
+   pEle.textContent=`name:${memory.fullName} -ID:${memory.id}`;
+
+   let pEle2=document.createElement('p')
+   divElem1.append(pEle2);
+   pEle2.textContent=`Department:${memory.department}-Level:${memory.level}`;
+
+   let pEle3=document.createElement('p');
+   divElem1.appendChild(pEle3);
+   pEle3.textContent=`${memory.salary}`;
+//    console.log("render")
+}
+  
+}
+render();
+
+// employ0.render();
+// employ1.render();
+// employ2.render();
+// employ3.render();
+// employ4.render();
+// employ5.render();
+// employ6.render();
+/**
 HrMangment.prototype.render =function(){
     //document.write(`<p><h2>"${this.fullName}" is an employee in our companey and its salary is : ${this.Salary()} $$</h2> </p>`)
 //    let div=document.createElement('div');
@@ -97,14 +152,8 @@ let mysection =document.getElementById("hi");
 //    console.log("render")
 
 }
+ */ 
 
-employ0.render();
-employ1.render();
-employ2.render();
-employ3.render();
-employ4.render();
-employ5.render();
-employ6.render();
 
 ////html event 
 function func(){
@@ -127,6 +176,27 @@ function addEmployInfo (event){
 
     const employee = new HrMangment(func(),FullName,Image,Department,level);
     employee.Salary();
-    employee.render();
+    render();
+    settimgItem();
     console.log(employee);
 }
+
+//local storage 
+function settimgItem(){
+    let data= JSON.stringify(HrMangment.exMemory);//convert obj to json 
+    localStorage.setItem('employee',data);
+};
+//settimgItem();//inside the event
+//get data
+function gettingInfo(){
+let stringObj =localStorage.getItem('employee');
+let parsObj =JSON.parse(stringObj);//CONVERT json to obj
+
+if (parsObj!== null){
+    HrMangment.exMemory =parsObj;
+}
+render();
+
+}
+
+gettingInfo();
