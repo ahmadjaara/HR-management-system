@@ -71,8 +71,8 @@ employ5.Salary();
 employ6.Salary();
 
 
- function render(){
-    //document.write(`<p><h2>"${this.fullName}" is an employee in our companey and its salary is : ${this.Salary()} $$</h2> </p>`)
+ 
+ //document.write(`<p><h2>"${this.fullName}" is an employee in our companey and its salary is : ${this.Salary()} $$</h2> </p>`)
 //    let div=document.createElement('div');
 //mysection.appendChild(div);
 //   let ele =document.createElement('p') ; 
@@ -80,6 +80,7 @@ employ6.Salary();
 //   ele.textContent=`${this.fullName} ${this.id} ${this.level} ${this.salary} ${this.department}`;
 
 
+function render(){
 let mysection =document.getElementById("hi");
 
 for(let i =0;i<HrMangment.exMemory.length;i++){
@@ -109,7 +110,6 @@ for(let i =0;i<HrMangment.exMemory.length;i++){
 }
   
 }
-render();
 
 // employ0.render();
 // employ1.render();
