@@ -1,3 +1,15 @@
+header{
+    background-color: aqua;
+    /* height: 50px; */
+    margin-bottom: 20px;
+}
+header>a{
+    text-decoration: none;
+}
+header>a>h1{
+    padding-left: 10px;
+} 
+
 #table>div>table>tr>th{
 
         padding-top: 12px;
@@ -54,3 +66,32 @@
  #table>div>table>tr:hover {
     background-color: #ddd;}
 
+    footer{
+        display: flex;
+        justify-content: space-between;
+        background-color: aqua;
+        background-size: contain;
+        height: 6vh;
+        margin-top: 5px;
+        position: relative;
+        top: 290px;
+    }
+    footer>a{
+        text-decoration: none;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        position: relative;
+        bottom: 5px;
+        
+    }
+    #kk{
+        position: relative;
+        left: 40%;
+        
+    }
+    
+    footer>p{
+        position: relative;
+        left: 50%;
+    
+    }
