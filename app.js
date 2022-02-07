@@ -80,36 +80,36 @@ employ6.Salary();
 //   ele.textContent=`${this.fullName} ${this.id} ${this.level} ${this.salary} ${this.department}`;
 
 
-function render(){
+ HrMangment.prototype.render=function(){
 let mysection =document.getElementById("hi");
 
-for(let i =0;i<HrMangment.exMemory.length;i++){
-    
-    let memory = HrMangment.exMemory[i];
+
+    //for(i)
+   // let memory = HrMangment.exMemory[i];
+
  let divElem1 = document.createElement('div');
   
  mysection.appendChild(divElem1);
 
  let img =document.createElement('img');
    divElem1.appendChild(img);
-   img.setAttribute('src',memory.img);
+   img.setAttribute('src',this.img);//this mean the inside object 
 
 
    let pEle =document.createElement('p');
    divElem1.append(pEle);
-   pEle.textContent=`name:${memory.fullName} -ID:${memory.id}`;
+   pEle.textContent=`name:${this.fullName} -ID:${this.id}`;
 
    let pEle2=document.createElement('p')
    divElem1.append(pEle2);
-   pEle2.textContent=`Department:${memory.department}-Level:${memory.level}`;
+   pEle2.textContent=`Department:${this.department}-Level:${this.level}`;
 
    let pEle3=document.createElement('p');
    divElem1.appendChild(pEle3);
-   pEle3.textContent=`${memory.salary}`;
+   pEle3.textContent=`${this.salary}`;
 //    console.log("render")
 }
   
-}
 
 // employ0.render();
 // employ1.render();
@@ -176,7 +176,7 @@ function addEmployInfo (event){
 
     const employee = new HrMangment(func(),FullName,Image,Department,level);
     employee.Salary();
-    render();
+    employee.render();
     settimgItem();
     console.log(employee);
 }
@@ -193,10 +193,15 @@ let stringObj =localStorage.getItem('employee');
 let parsObj =JSON.parse(stringObj);//CONVERT json to obj
 
 if (parsObj!== null){
-    HrMangment.exMemory =parsObj;
+   // HrMangment.exMemory =parsObj;
+   parsObj.forEach((element)=>{new HrMangment(element.id,element.fullName,element.img,element.department,element.level)})
 }
-render();
+// for(let i =0;i<HrMangment.exMemory.length;i++){
+//     HrMangment.exMemory[i].render();
 
+// }
+HrMangment.exMemory.forEach((element)=>{element.render()})
 }
+
 
 gettingInfo();
