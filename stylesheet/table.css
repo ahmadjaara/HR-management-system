@@ -10,7 +10,9 @@ header>a>h1{
     padding-left: 10px;
 } 
 
-#table>div>table>tr>th{
+
+
+table>tr>th{
 
         padding-top: 12px;
         padding-bottom: 12px;
@@ -23,17 +25,17 @@ header>a>h1{
     padding-left: 12px;
 
 }
-#table>div>table>tr>td{
+table>tr>td{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
 
 }
-#table>div>table>tr:nth-child(6){
+table>tr:nth-child(6){
     background-color: #04AA6Ded;
     text-align:center;
 }
-#table>div>table>tr:nth-child(6)>td{
+table>tr:nth-child(6)>td{
     background-color: #04AA6Ded;
     text-align:center;
     size: 10px;
@@ -41,16 +43,16 @@ header>a>h1{
 
 }
 
-#table>div>table>tr:nth-child(2){
+table>tr:nth-child(2){
     background-color: #c4d0e2;}
 
-#table>div>table>tr:nth-child(3){
+table>tr:nth-child(3){
     background-color: #c4d0e2;}
 
-#table>div>table>tr:nth-child(4){
+table>tr:nth-child(4){
     background-color: #c4d0e2;}
 
-#table>div>table>tr:nth-child(5){
+table>tr:nth-child(5){
     background-color: #c4d0e2;}
     #table>div>table>tr:nth-child(6){
         background-color: #c4d0e2;
@@ -59,11 +61,11 @@ header>a>h1{
     }
 
    
-#table>div>table>tr:nth-child(7)>td{
+table>tr:nth-child(7)>td{
         text-align: center;
         background-color: #c4d0e2;}
 
- #table>div>table>tr:hover {
+ table>tr:hover {
     background-color: #ddd;}
 
     footer{
